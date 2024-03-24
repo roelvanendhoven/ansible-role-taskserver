@@ -30,8 +30,8 @@
         chdir: "{{ taskd_install_location }}/pki/"
 
     - name: ensures certs dir exists
-      file: 
-        path: "{{ taskd_data_location‎ }}/certs"
+      file:
+        path: "{{ taskd_data_location }}/certs"
         state: directory
 
     - name: Copy generated certs to data location
