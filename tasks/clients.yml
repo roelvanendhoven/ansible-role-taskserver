@@ -7,6 +7,8 @@
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
   delegate_to: localhost
+  tags: 
+    - download
 
 - name: Download client certificates
   block:
@@ -30,6 +32,8 @@
         dest: "{{ taskd_selfsigned_clients_download_dir }}/"
         flat: true
   when: taskd_selfsigned_clients_download | bool
+  tags: 
+    - download
 
 - name: Create taskwarrior config
   template:
@@ -40,6 +44,8 @@
     index_var: index
   when: taskd_produce_taskwarrior_config | bool
   delegate_to: localhost
+  tags: 
+    - download
 
 - name: Create android app config
   template:
@@ -50,3 +56,5 @@
     index_var: index
   when: taskd_produce_android_config | bool
   delegate_to: localhost
+  tags: 
+    - download
