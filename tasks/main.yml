@@ -1,6 +1,6 @@
 ---
 
-- include_vars: variables.yml
+- include_tasks: variables.yml
 
 - include_tasks: dependencies/{{ ansible_os_family }}.yml
 
